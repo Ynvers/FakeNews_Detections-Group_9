@@ -9,10 +9,23 @@
 <body>
     <div class="container">
         <h1>Analyse de Texte</h1>
+
+        <!-- Champ pour coller du texte -->
         <textarea id="textInput" placeholder="Collez votre article ici..."></textarea>
+
+        <!-- Champ pour coller un lien -->
+        <input type="text" id="urlInput" placeholder="Collez le lien de l'article ici...">
+
+        <!-- Champ pour téléverser un PDF -->
+        <input type="file" id="pdfInput" accept="application/pdf">
+
+        <!-- Bouton pour analyser -->
         <button id="analyzeButton">Analyser</button>
+
+        <!-- Résultat de l'analyse -->
         <div id="result"></div>
         
+        <!-- Historique des analyses -->
         <h2>Historique des Analyses</h2>
         <ul id="history"></ul>
     </div>
