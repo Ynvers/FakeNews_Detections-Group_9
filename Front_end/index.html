@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detection</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Fake News Detection</h1>
+            <nav>
+                <a href="history.html" class="history-link">
+                    <i class="fas fa-history"></i> Analysis History
+                </a>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Input Type Selection -->
+            <div class="input-selector">
+                <button class="input-type-btn active" data-type="text">
+                    <i class="fas fa-align-left"></i> Text
+                </button>
+                <button class="input-type-btn" data-type="url">
+                    <i class="fas fa-link"></i> URL
+                </button>
+                <button class="input-type-btn" data-type="file">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+            </div>
+
+            <!-- Input Forms -->
+            <div class="input-forms">
+                <!-- Text Input -->
+                <div class="input-form active" id="textInput">
+                    <textarea 
+                        placeholder="Enter the text content you want to analyze..."
+                        rows="6"
+                    ></textarea>
+                </div>
+
+                <!-- URL Input -->
+                <div class="input-form" id="urlInput">
+                    <input 
+                        type="url" 
+                        placeholder="Enter the URL of the article..."
+                    >
+                </div>
+
+                <!-- File Input -->
+                <div class="input-form" id="fileInput">
+                    <div class="file-drop-zone">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drag & drop your PDF here or click to browse<br>Ensure that the pdf's name is his title</p>
+                        <input type="file" accept=".pdf" hidden>
+                    </div>
+                </div>
+
+                <button id="analyzeBtn" class="analyze-btn">
+                    <i class="fas fa-search"></i> Analyze Content
+                </button>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results" id="results" style="display: none;">
+                <div class="result-header">
+                    <h2>Analysis Results</h2>
+                    <span class="timestamp"></span>
+                </div>
+
+                <div class="result-card">
+                    <div class="credibility-score">
+                        <div class="score-circle">
+                            <span class="score-value">0%</span>
+                        </div>
+                        <p class="score-label">Credibility Score</p>
+                    </div>
+
+                    <div class="verdict">
+                        <h3>Verdict</h3>
+                        <p class="verdict-text"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading Indicator -->
+            <div class="loading" id="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Analyzing content...</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
