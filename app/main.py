@@ -92,7 +92,7 @@ def analyse_url(content: str):
         ]
         agent = Mistral(mistral_key)
         model_response = agent.chat.complete(
-                model = "mistral-large-latest",
+                model = "codestral-latest",
                 messages = context
         )
         response_message = model_response.choices[0].message.content
