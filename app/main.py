@@ -27,20 +27,22 @@ app.add_middleware(
 
 @app.post("/analyze")
 async def predict(content: str = Form(None), type: str = Form(None), file: UploadFile = File(None)):
+    #print(f"l'entrée {file}")
     if type == "text":
         if not content:
             raise HTTPException(status_code=400, detail="Content is required")
-        result = analyse_text(content)
+        result = await analyse_text(content)
 
     elif type == "url":
         if not content:
             raise HTTPException(status_code=400, detail="Content is required")
-        result = analyse_url(content)
+        result = await analyse_url(content)
 
-    elif type == "file":
+    elif file.content_type == "application/pdf":
+        print(f"Received file: {file.filename}")
         if not file:
             raise HTTPException(status_code=400, detail="File is required")
-        result = analyse_file(file)
+        result = await analyse_file(file)
     
     else:
         raise HTTPException(status_code=400, detail="Type is required")
@@ -104,5 +106,5 @@ def analyse_url(content: str):
 
 async def analyse_file(file: UploadFile):
     file_content = await file.read()
-    prediction = model.predict([file_content.decode('utf-8')])
+    # prediction = model.predict([file_content.decode('utf-8')])
     return {"credibilityScore": 0.5, "verdict": "fake"}
