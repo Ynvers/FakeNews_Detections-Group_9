@@ -1,7 +1,7 @@
 fastapi
 uvicorn
-xgboost
 python-dotenv
 mistralai
 requests
-beau
+beautifulsoup4
+joblib
