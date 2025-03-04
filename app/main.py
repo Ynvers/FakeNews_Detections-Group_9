@@ -6,13 +6,24 @@ from mistralai import Mistral
 from bs4 import BeautifulSoup
 from fastapi.responses import JSONResponse
 from fastapi import FastAPI, HTTPException, File, Form, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
 
 load_dotenv()
-mistral_key = os.getenv("MISTRAL_KEY")
+mistral_key = os.getenv("MISTRAL_API_KEY")
+print(f"MISTRAL_KEY: {mistral_key}")
 model = None # Charger le modèle ici
 #model = joblib.load("model.pkl")
 
 app = FastAPI()
+
+# Configuration CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Autorise toutes les origines (pour le développement)
+    allow_credentials=True,
+    allow_methods=["*"],  # Autorise toutes les méthodes (GET, POST, etc.)
+    allow_headers=["*"],  # Autorise tous les headers
+)
 
 @app.post("/analyze")
 async def predict(content: str = Form(None), type: str = Form(None), file: UploadFile = File(None)):
@@ -38,9 +49,9 @@ async def predict(content: str = Form(None), type: str = Form(None), file: Uploa
 
 
 def analyse_text(content: str):
-    prediction = model.predict([content])
-    credibility_score = prediction[0]
-    return {"credibilityScore": 0.5, "verdict": "fake"}
+    #prediction = model.predict([content])
+    #credibility_score = prediction[0]
+    return {"credibilityScore": 50, "verdict": "fake"}
 
 def analyse_url(content: str):
     response = requests.get(content)
@@ -83,10 +94,10 @@ def analyse_url(content: str):
                 messages = context
         )
         response_message = model_response.choices[0].message.content
-        prediction = model.predict([response_message])
-        credibility_score = prediction[0]
-        verdict = "fake" if credibility_score < 0.5 else "real"
-        return {"credibilityScore": credibility_score, "verdict": verdict}
+        # prediction = model.predict([response_message])
+        # credibility_score = prediction[0]
+        # verdict = "fake" if credibility_score < 0.5 else "real"
+        return {"credibilityScore": 50, "verdict": "verdict"}
     else:
         print(f"Failed to fetch the webpage. Status code: {response.status_code}")
         return {"credibilityScore": 0.5, "verdict": "fake"}

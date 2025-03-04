@@ -138,7 +138,7 @@ class FakeNewsDetector {
 
     async sendToAPI(content) {
         // Replace with actual API endpoint
-        const API_ENDPOINT = 'https://your-api-endpoint.com/analyze';
+        const API_ENDPOINT = 'http://127.0.0.1:8000/analyze';
 
         const formData = new FormData();
 
