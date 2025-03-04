@@ -5,3 +5,4 @@ mistralai
 requests
 beautifulsoup4
 joblib
+python-multipart

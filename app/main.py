@@ -5,14 +5,14 @@ from dotenv import load_dotenv
 from mistralai import Mistral
 from bs4 import BeautifulSoup
 from fastapi.responses import JSONResponse
-from fastapi import FASTAPI, HTTPException, File, Form, UploadFile
+from fastapi import FastAPI, HTTPException, File, Form, UploadFile
 
 load_dotenv()
 mistral_key = os.getenv("MISTRAL_KEY")
 model = None # Charger le modèle ici
 #model = joblib.load("model.pkl")
 
-app = FASTAPI()
+app = FastAPI()
 
 @app.post("/analyze")
 async def predict(content: str = Form(None), type: str = Form(None), file: UploadFile = File(None)):
