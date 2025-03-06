@@ -12,6 +12,9 @@ load_dotenv()
 mistral_key = os.getenv("MISTRAL_API_KEY")
 model = joblib.load("model/svm_model.pkl")
 vectorizer = joblib.load("model/tfidf_vectorizer")
+print(f"Type de model : {type(model)}")  # Doit être un modèle ML, pas un Vectorizer
+print(f"Type de vectorizer : {type(vectorizer)}")  # Doit être un TfidfVectorizer
+
 
 app = FastAPI()
 
