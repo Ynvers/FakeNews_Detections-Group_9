@@ -6,3 +6,4 @@ requests
 beautifulsoup4
 joblib
 python-multipart
+scikit-learn

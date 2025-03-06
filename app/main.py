@@ -10,9 +10,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 load_dotenv()
 mistral_key = os.getenv("MISTRAL_API_KEY")
-print(f"MISTRAL_KEY: {mistral_key}")
-model = None # Charger le modèle ici
-#model = joblib.load("model.pkl")
+model = joblib.load("model/svm_model.pkl")
+vectorizer = joblib.load("model/tfidf_vectorizer")
 
 app = FastAPI()
 
@@ -53,7 +52,7 @@ async def predict(content: str = Form(None), type: str = Form(None), file: Uploa
 def analyse_text(content: str):
     #prediction = model.predict([content])
     #credibility_score = prediction[0]
-    return {"credibilityScore": 50, "verdict": "fake"}
+    return predict_text(content)
 
 def analyse_url(content: str):
     response = requests.get(content)
@@ -99,12 +98,20 @@ def analyse_url(content: str):
         # prediction = model.predict([response_message])
         # credibility_score = prediction[0]
         # verdict = "fake" if credibility_score < 0.5 else "real"
-        return {"credibilityScore": 50, "verdict": "verdict"}
+        return predict_text(response_message)
     else:
         print(f"Failed to fetch the webpage. Status code: {response.status_code}")
         return {"credibilityScore": 0.5, "verdict": "fake"}
 
 async def analyse_file(file: UploadFile):
     file_content = await file.read()
-    # prediction = model.predict([file_content.decode('utf-8')])
-    return {"credibilityScore": 0.5, "verdict": "fake"}
+    return predict_text(file_content)
+
+def predict_text(text: str):
+    # Transformer le texte en vecteur
+    vectorized_text = vectorizer.transform([text])
+    # Prédiction avec le modèle SVM
+    prediction = model.predict(vectorized_text)
+    credibility_score = prediction[0]
+    verdict = "fake" if credibility_score < 0.5 else "real"
+    return {"credibilityScore": credibility_score, "verdict": verdict}
