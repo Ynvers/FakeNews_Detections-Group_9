@@ -5,13 +5,13 @@
 ![MIT License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
 
 ## 📌 Description
-Ce projet est un travail pratique (TP) réalisé dans un cadre académique. Il consiste en la conception et l'implémentation d'un site web permettant la détection de fake news à l'aide de modèles de Machine Learning. L'objectif est d'explorer l'utilisation de techniques de traitement du langage naturel (NLP) pour évaluer la crédibilité d'un texte ou d'un article.
+Ce projet est un travail pratique (TP) réalisé dans un cadre académique. Il vise à concevoir et implémenter une application web permettant de détecter les fake news à l'aide de modèles de Machine Learning et de techniques de traitement du langage naturel (NLP).
 
 ## ✨ Fonctionnalités
-- ✅ Analyse de texte pour déterminer s'il s'agit d'une fake news.
-- 🔍 Analyse d'articles à partir d'une URL.
-- 📄 Analyse de documents PDF.
-- 🌐 Interface web interactive permettant aux utilisateurs d'effectuer des prédictions.
+- ✅ Analyse de texte pour identifier les fake news.
+- 🔍 Vérification d'articles via une URL.
+- 📄 Extraction et analyse de texte depuis des documents PDF.
+- 🌐 Interface web interactive pour faciliter l'utilisation.
 
 ## 🛠️ Technologies Utilisées
 - **Backend** : FastAPI
@@ -25,7 +25,7 @@ Ce projet est un travail pratique (TP) réalisé dans un cadre académique. Il c
 - pip
 - Virtualenv (optionnel)
 
-### 📥 Installation
+### 💞 Installation
 1. **Cloner le projet**
    ```bash
    git clone https://github.com/Ynvers/FakeNews_Detections-Group_9.git
@@ -35,8 +35,8 @@ Ce projet est un travail pratique (TP) réalisé dans un cadre académique. Il c
 2. **Créer un environnement virtuel (optionnel mais recommandé)**
    ```bash
    python -m venv env
-   source venv/bin/activate  # Sur macOS/Linux
-   venv\Scripts\activate     # Sur Windows
+   source env/bin/activate  # Sur macOS/Linux
+   env\Scripts\activate    # Sur Windows
    ```
 
 3. **Installer les dépendances**
@@ -51,7 +51,7 @@ Ce projet est un travail pratique (TP) réalisé dans un cadre académique. Il c
    ```
 
 ## 🎯 Utilisation
-Une fois l'application lancée, ouvrez votre navigateur et accédez à la page **index.html** dans le dossier `Front_end/`.
+Une fois l'application lancée, ouvrez votre navigateur et accédez à l'interface via **index.html** dans le dossier `Front_end/`.
 
 ## 📂 Organisation du Projet
 ```
@@ -60,36 +60,38 @@ Une fois l'application lancée, ouvrez votre navigateur et accédez à la page *
 │   │   ├── model.pkl             # Modèle de classification
 │   │   ├── tfidf_vectorizer.pkl  # Vectoriseur TF-IDF
 │   │
-│   ├── main.py                   # Code principal (API avec FastAPI)
+│   ├── main.py                   # API avec FastAPI
 │
 ├── Front_end/
-│   ├── history.html               # Page historique des prédictions
-│   ├── history.js                 # Script pour la gestion de l'historique
-│   ├── index.html                 # Page principale de l'application
-│   ├── script.js                  # Script principal du frontend
-│   ├── styles.css                 # Feuille de style CSS
+│   ├── history.html               # Historique des prédictions
+│   ├── history.js                 # Gestion de l'historique
+│   ├── index.html                 # Interface principale
+│   ├── script.js                  # Script principal
+│   ├── styles.css                 # Feuille de style
 │
 ├── venv/                          # Environnement virtuel (optionnel)
 ├── .env                           # Variables d'environnement
 ├── .gitignore                     # Fichiers ignorés par Git
 ├── README.md                      # Documentation du projet
-├── requirements.txt                # Liste des dépendances
+├── requirements.txt                # Dépendances
 ```
 
+## 📌 Exemples d'Utilisation
+![Demo](image.png)  
+*(Illustration du fonctionnement du projet.)*
+
 ## 🔮 Améliorations Futures
-- 📈 Intégration d'un modèle plus performant (BERT, RoBERTa, etc.)
-- 🎨 Optimisation de l'interface utilisateur
-- 🗄️ Ajout d'une base de données pour stocker les résultats des analyses
+- 📈 Intégration de modèles avancés (BERT, RoBERTa, etc.)
+- 🎨 Amélioration de l'interface utilisateur
+- 🗄 Ajout d'une base de données pour conserver les analyses
 
 ## 👥 Auteurs
-- **Nathan ADOHO** - [GitHub](https://github.com/Ynvers) | [LinkedIn](www.linkedin.com/in/luzoloadoho)
-- **Abiola SALAMI** - [GitHub](https://github.com/abiolasalami) | [LinkedIn](https://www.linkedin.com/in/abiola-salami-ab2b15300 )
-- **Farid MAMADOU** - [GitHub](https://github.com/faridmamadou) | [LinkedIn](https://www.linkedin.com/in/coequipier2)
-- **Nelly DAKO** - [GitHub](https://github.com/Beretta05) | [LinkedIn]([https://www.linkedin.com/in/coequipier2](https://www.linkedin.com/in/nelly-dako-87308a29b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app))
-- **Camus OGOUBIYI** - [GitHub](https://github.com/Camus-OGB) | [LinkedIn](https://www.linkedin.com/in/farid-mamadou-916411277 )
+- **Nathan** - [GitHub](https://github.com/Ynvers) | [LinkedIn](https://www.linkedin.com/in/ton-profil)
+- **Coéquipier 1** - [GitHub](https://github.com/coequipier1) | [LinkedIn](https://www.linkedin.com/in/coequipier1)
+- **Coéquipier 2** - [GitHub](https://github.com/coequipier2) | [LinkedIn](https://www.linkedin.com/in/coequipier2)
 
-## 📜 Licence
-Ce projet est sous licence MIT. Vous êtes libre de le modifier et de l'améliorer.
+## 🐝 Licence
+Ce projet est sous licence MIT. Vous pouvez l'utiliser et le modifier librement.
 
 ## 🤝 Contribuer
 Les contributions sont les bienvenues !
