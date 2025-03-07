@@ -125,7 +125,7 @@ def predict_text(text: str):
     vectorized_text = vectorizer.transform([text])
     # Prédiction avec le modèle xgboost
     credibility_score = model.predict_proba(vectorized_text)
-    probas_score = (round((float(credibility_score[0][1])*100), 3) ) 
+    probas_score = (round((float(credibility_score[0][1])*100), 3) ) * 100
     print(f"Probas score: {probas_score}")
     verdict = "Fake News" if probas_score < 50 else "Real News"
     return {
