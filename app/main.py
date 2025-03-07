@@ -1,5 +1,8 @@
 import os
+import re
+import fitz
 import joblib
+import string
 import requests
 from dotenv import load_dotenv
 from mistralai import Mistral
@@ -10,8 +13,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 load_dotenv()
 mistral_key = os.getenv("MISTRAL_API_KEY")
-model = joblib.load("model/svm_model.pkl")
-vectorizer = joblib.load("model/tfidf_vectorizer")
+model = joblib.load("model/model.pkl")
+vectorizer = joblib.load("model/tfidf_vectorizer.pkl")
 print(f"Type de model : {type(model)}")  # Doit être un modèle ML, pas un Vectorizer
 print(f"Type de vectorizer : {type(vectorizer)}")  # Doit être un TfidfVectorizer
 
@@ -108,13 +111,30 @@ def analyse_url(content: str):
 
 async def analyse_file(file: UploadFile):
     file_content = await file.read()
-    return predict_text(file_content)
+
+    # Extraire le texte du PDF
+    with fitz.open(stream=file_content, filetype="pdf") as doc:
+        text = "\n".join([page.get_text() for page in doc])
+
+    return predict_text(text)
 
 def predict_text(text: str):
+    # Nettoyer le texte
+    text = wordopt(text)
     # Transformer le texte en vecteur
     vectorized_text = vectorizer.transform([text])
-    # Prédiction avec le modèle SVM
-    prediction = model.predict(vectorized_text)
-    credibility_score = prediction[0]
+    # Prédiction avec le modèle xgboost
+    credibility_score = model.predict_proba(vectorized_text)[0][1]
     verdict = "fake" if credibility_score < 0.5 else "real"
     return {"credibilityScore": credibility_score, "verdict": verdict}
+
+def wordopt(text):
+    text = text.lower()
+    text = re.sub('\[.*?\]', '', text)
+    text = re.sub("\\W"," ",text) 
+    text = re.sub('https?://\S+|www\.\S+', '', text)
+    text = re.sub('<.*?>+', '', text)
+    text = re.sub('[%s]' % re.escape(string.punctuation), '', text)
+    text = re.sub('\n', '', text)
+    text = re.sub('\w*\d\w*', '', text)    
+    return text

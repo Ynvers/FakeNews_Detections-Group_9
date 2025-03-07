@@ -7,3 +7,4 @@ beautifulsoup4
 joblib
 python-multipart
 scikit-learn
+xgboost
