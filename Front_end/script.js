@@ -160,36 +160,6 @@ class FakeNewsDetector {
 
         return await response.json();
     }
-
-    // async sendToAPI(content) {
-    //     console.log("📡 Simulation de l'envoi de contenu à l'API...");
-    
-    //     // Simuler un délai (comme une vraie requête API)
-    //     await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    //     // Générer un score aléatoire (0 à 100)
-    //     const credibilityScore = Math.floor(Math.random() * 100);
-    
-    //     // Définir un verdict basé sur le score
-    //     let verdict;
-    //     if (credibilityScore >= 70) {
-    //         verdict = "✅ Ce contenu est fiable.";
-    //     } else if (credibilityScore >= 40) {
-    //         verdict = "⚠️ Ce contenu contient des informations douteuses.";
-    //     } else {
-    //         verdict = "❌ Ce contenu semble être une fake news.";
-    //     }
-    
-    //     // Simuler une réponse JSON de l'API
-    //     const fakeResponse = {
-    //         credibilityScore,
-    //         verdict,
-    //     };
-    
-    //     console.log("✅ Réponse simulée :", fakeResponse);
-    
-    //     return fakeResponse;
-    // }
     
 
     displayResults(result) {
@@ -201,14 +171,12 @@ class FakeNewsDetector {
         const scoreValue = document.querySelector('.score-value');
         const scoreCircle = document.querySelector('.score-circle');
         const credibilityScore = result.credibilityScore;
-
+ 
         scoreValue.textContent = `${credibilityScore}%`;
 
         // Update score circle color based on score
-        if (credibilityScore >= 70) {
+        if (credibilityScore > 50) {
             scoreCircle.style.borderColor = 'var(--success-color)';
-        } else if (credibilityScore >= 40) {
-            scoreCircle.style.borderColor = 'var(--warning-color)';
         } else {
             scoreCircle.style.borderColor = 'var(--danger-color)';
         }

@@ -201,26 +201,11 @@ textarea{
 .verdict-text {
     padding: 1rem;
     border-radius: 0.375rem;
-    background-color: #f0fdf4;
-    color: var(--success-color);
+    background-color: #dcd6d66a;
+    color: var(--text-primary);
     margin-top: 0.5rem;
 }
 
-.analysis-points {
-    list-style: none;
-}
-
-.analysis-points li {
-    padding: 0.75rem;
-    border-bottom: 1px solid var(--border-color);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.analysis-points li:last-child {
-    border-bottom: none;
-}
 
 /* Loading Spinner */
 .loading {
