@@ -59,6 +59,7 @@ Une fois l'application lancée, ouvrez votre navigateur et accédez à l'interfa
 │   ├── model/
 │   │   ├── model.pkl             # Modèle de classification
 │   │   ├── tfidf_vectorizer.pkl  # Vectoriseur TF-IDF
+│   │   ├── Fake_news_detections.ipynb                # Notebooke vers les entrainements des modèles
 │   │
 │   ├── main.py                   # API avec FastAPI
 │
