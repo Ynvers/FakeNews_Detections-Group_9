@@ -86,9 +86,11 @@ Une fois l'application lancée, ouvrez votre navigateur et accédez à l'interfa
 - 🗄 Ajout d'une base de données pour conserver les analyses
 
 ## 👥 Auteurs
-- **Nathan** - [GitHub](https://github.com/Ynvers) | [LinkedIn](https://www.linkedin.com/in/ton-profil)
-- **Coéquipier 1** - [GitHub](https://github.com/coequipier1) | [LinkedIn](https://www.linkedin.com/in/coequipier1)
-- **Coéquipier 2** - [GitHub](https://github.com/coequipier2) | [LinkedIn](https://www.linkedin.com/in/coequipier2)
+- **Nathan ADOHO** - [GitHub](https://github.com/Ynvers) | [LinkedIn](www.linkedin.com/in/luzoloadoho)
+- **Abiola SALAMI** - [GitHub](https://github.com/abiolasalami) | [LinkedIn](https://www.linkedin.com/in/abiola-salami-ab2b15300 )
+- **Farid MAMADOU** - [GitHub](https://github.com/faridmamadou) | [LinkedIn](https://www.linkedin.com/in/coequipier2)
+- **Nelly DAKO** - [GitHub](https://github.com/Beretta05) | [LinkedIn]([https://www.linkedin.com/in/coequipier2](https://www.linkedin.com/in/nelly-dako-87308a29b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app))
+- **Camus OGOUBIYI** - [GitHub](https://github.com/Camus-OGB) | [LinkedIn](https://www.linkedin.com/in/farid-mamadou-916411277 )
 
 ## 🐝 Licence
 Ce projet est sous licence MIT. Vous pouvez l'utiliser et le modifier librement.
