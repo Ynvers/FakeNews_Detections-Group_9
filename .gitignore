@@ -1,3 +1,8 @@
+# Environnement virtuel
 venv
+
+# Fichiers Python
 app/__pycache__
+
+# Fichier d'environnement
 .env
