@@ -35,10 +35,12 @@ Ce projet est un travail pratique (TP) réalisé dans un cadre académique. Il v
 2. **Créer un environnement virtuel (optionnel mais recommandé)**
    ```bash
    python -m venv venv
-   ou 
+   # ou 
    python3 -m venv venv
+   
    source venv/bin/activate  # Sur macOS/Linux
-   env\Scripts\activate    # Sur Windows
+   # ou
+   .\venv\Scripts\activate   # Sur Windows
    ```
 
 3. **Installer les dépendances**
